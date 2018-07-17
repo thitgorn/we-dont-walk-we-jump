@@ -5,6 +5,7 @@ class Map {
         this.carrot = []
         this.width = width
         this.height = height
+        // this.initialize()
     }
 
     initialize() {

@@ -23,10 +23,14 @@ class Game {
     }
 
     moveLeft() {
+        if (!this.isPlaying) 
+            return
         this.Rabbit.moveLeft()
     }
 
     moveRight() {
+        if (!this.isPlaying) 
+            return
         this.Rabbit.moveRight()
     }
 }

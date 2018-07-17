@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Rabbit } from './Components/Rabbit//Rabbit';
 import Game from './Logic/Game'
 
 class App extends Component {
@@ -11,10 +10,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Rabbit />
+        {/* <Rabbit /> */}
+        {/* <div className='block'></div>
         <div className='block'></div>
-        <div className='block'></div>
-        <div className='block'></div>
+        <div className='block'></div> */}
       </div>
     );
   }

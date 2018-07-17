@@ -2,6 +2,7 @@ class Rabbit {
     constructor() {
         this.x = 1
         this.y = 0
+        console.log(this)
     }
 
     moveUp() {
@@ -10,6 +11,7 @@ class Rabbit {
 
     moveRight() {
         this.x = (this.x+1) % 3
+        console.log(this)
     }
 
     moveLeft() {
@@ -17,6 +19,7 @@ class Rabbit {
         if(this.x < 0) {
             this.x = 2
         }
+        // console.log(this)
     }
 
     reset() {
