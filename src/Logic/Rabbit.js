@@ -1,13 +1,28 @@
 class Rabbit {
     constructor() {
-        this.lane = 1
+        this.x = 1
+        this.y = 0
     }
 
-    turnLeft() {
-        this.lane--
+    moveUp() {
+        this.y+=1
     }
 
-    turnRight() {
-        this.lane++
+    moveRight() {
+        this.x = (this.x+1) % 3
+    }
+
+    moveLeft() {
+        this.x = (this.x-1)
+        if(this.x < 0) {
+            this.x = 2
+        }
+    }
+
+    reset() {
+        this.x = 1
+        this.y = 0
     }
 }
+
+export default Rabbit

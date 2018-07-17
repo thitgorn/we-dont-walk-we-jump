@@ -2,20 +2,32 @@ import Rabbit from './Rabbit'
 import Map from './Map'
 
 class Game {
-    constructor (width, height) {
-        this.width = width
-        this.height = height
-
-        // this.Map = new Map(width, height)
-        // this.Rabbit = new Rabbit()
+    constructor () {
+        this.Map = new Map()
+        this.Rabbit = new Rabbit()
+        this.isPlaying = false
     }
 
-    start () {
-        // setInterval( () => {
-        //     this.height--
-        //     console.log(this)
-        // },1000)
+    play() {
+        this.isPlaying = true
+    }
 
+    pause() {
+        this.isPlaying = false
+    }
+
+    restart() {
+        this.Map.clear()
+        this.Rabbit.reset()
+        this.isPlaying = false
+    }
+
+    moveLeft() {
+        this.Rabbit.moveLeft()
+    }
+
+    moveRight() {
+        this.Rabbit.moveRight()
     }
 }
 

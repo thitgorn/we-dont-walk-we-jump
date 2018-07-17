@@ -5,8 +5,8 @@ import Game from './Logic/Game'
 
 class App extends Component {
   componentDidMount() {
-    const game = new Game(200,200);
-    game.start()
+    const game = new Game();
+    console.log(game)
   }
   render() {
     return (
