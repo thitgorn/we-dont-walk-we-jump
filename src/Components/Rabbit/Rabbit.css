@@ -1,7 +1,7 @@
 #rabbit {
     position: fixed;
     bottom: 10%;
-    left: 50%;
+    /* left: 50%; */
     transform: translate(-50%,0);
     background: white;
     width: 10vw;

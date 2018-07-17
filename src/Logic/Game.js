@@ -1,11 +1,14 @@
 import Rabbit from './Rabbit'
 import Map from './Map'
+import { mapInterval } from './Config';
 
 class Game {
-    constructor () {
+    constructor (notify) {
         this.Map = new Map()
         this.Rabbit = new Rabbit()
         this.isPlaying = false
+        this.notify = notify
+        this.playing()
     }
 
     play() {
@@ -14,6 +17,18 @@ class Game {
 
     pause() {
         this.isPlaying = false
+    }
+
+    playing() {
+        setInterval(() => {
+            if(this.isPlaying) {
+                this.Rabbit.moveUp()
+                console.log(this.Rabbit);
+                if(this.Rabbit.y % mapInterval === 0) {
+                    this.notify()
+                }
+            }
+        },500)
     }
 
     restart() {
