@@ -1,15 +1,27 @@
 import { width,height } from './Config'
+import Carrot from './Carrot'
 
 class Map {
     constructor() {
         this.carrot = []
         this.width = width
         this.height = height
-        // this.initialize()
     }
 
     initialize() {
+        // the first block
+        // Math.floor(Math.random() * 10);  0-9
+        const firstCarrot = new Carrot(1, 0, 50)
+        this.carrot.push(firstCarrot)
         // create list of carrot
+        while((this.carrot[this.carrot.length - 1].y + this.carrot[this.carrot.length - 1].height) < this.height) {
+            const x = Math.floor(Math.random() * 3);
+            const height = Math.floor(Math.random() * 10) + 5;
+            const y = ((this.carrot[this.carrot.length - 1].y + 
+                        this.carrot[this.carrot.length - 1].height) - 1)
+            const carrot = new Carrot(x,y,height)
+            this.carrot.push(carrot)
+        }
     }
 
     clear() {

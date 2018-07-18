@@ -11,6 +11,7 @@ class App extends Component {
       game: null,
       state: 0,
       lane: 1,
+      currentY: 0,
     }
     this.notify = this.notify.bind(this)
   }
@@ -21,9 +22,9 @@ class App extends Component {
   }
   
   componentDidMount() {
-    const game = new Game(this.notify);
+    const game = new Game(this.notify)
+    game.update = () => this.update()
     this.setState({ game: game })
-    game.play()
   }
 
   left = () => {
@@ -38,6 +39,10 @@ class App extends Component {
     console.log('moving right');
   }
 
+  update = () => {
+    this.setState({ currentY: this.state.game.Rabbit.y })
+  }
+
   render() {
     const backgroundColor = ['black','blue','red','yellow']
     return (
@@ -48,12 +53,11 @@ class App extends Component {
           <div style={{ background: 'green' ,width: '50%', height: '100vh', opacity: '0.1'}} onClick={this.right}>
           </div>
         </div>
-        <Rabbit x={this.state.lane}/>
-        <Carrot />
+        <Rabbit x={this.state.lane} />
+        { this.state.game ? <Carrot carrots={this.state.game.Map.carrot} currentY={this.state.currentY} /> : null }
         <div className='block'></div>
         <div className='block'></div>
         <div className='block'></div>
-        
       </div>
     );
   }

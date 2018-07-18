@@ -9,6 +9,7 @@ class Game {
         this.isPlaying = false
         this.notify = notify
         this.playing()
+        this.Map.initialize()
     }
 
     play() {
@@ -27,8 +28,10 @@ class Game {
                 if(this.Rabbit.y % mapInterval === 0) {
                     this.notify()
                 }
+                this.update()
+                console.log("moving")
             }
-        },500)
+        },100)
     }
 
     restart() {
