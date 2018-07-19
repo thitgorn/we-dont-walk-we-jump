@@ -19,7 +19,7 @@ class Rabbit {
         if(this.x < 0) {
             this.x = 2
         }
-        // console.log(this)
+        console.log(this)
     }
 
     reset() {

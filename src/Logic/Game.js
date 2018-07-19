@@ -28,10 +28,9 @@ class Game {
                 if(this.Rabbit.y % mapInterval === 0) {
                     this.notify()
                 }
-                this.update()
-                console.log("moving")
+                console.log(this.Map.isOnCarrot(this.Rabbit.x,this.Rabbit.y));
             }
-        },100)
+        },490)
     }
 
     restart() {

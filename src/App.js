@@ -11,7 +11,6 @@ class App extends Component {
       game: null,
       state: 0,
       lane: 1,
-      currentY: 0,
     }
     this.notify = this.notify.bind(this)
   }
@@ -23,30 +22,24 @@ class App extends Component {
   
   componentDidMount() {
     const game = new Game(this.notify)
-    game.update = () => this.update()
+    game.play()
     this.setState({ game: game })
   }
 
   left = () => {
     this.state.game.moveLeft()
     this.setState({lane: this.state.game.Rabbit.x})
-    console.log('moving left');
   }
 
   right = () => {
     this.state.game.moveRight()
     this.setState({lane: this.state.game.Rabbit.x})
-    console.log('moving right');
-  }
-
-  update = () => {
-    this.setState({ currentY: this.state.game.Rabbit.y })
   }
 
   render() {
-    const backgroundColor = ['black','blue','red','yellow']
+    const backgroundColor = ['fade-black','fade-blue','fade-red','fade-yellow']
     return (
-      <div className="App" style={{background: backgroundColor[this.state.state % backgroundColor.length]}}>
+      <div className={`App ${backgroundColor[this.state.state % backgroundColor.length]}`}>
         <div style={{ position:'fixed', top:'0', left:'0', width:'100%', height:'100vh', zIndex:'999', display: 'flex' }}>
           <div style={{ background: 'cyan' ,width: '50%', height: '100vh', opacity: '0.1'}} onClick={this.left}>
           </div>
@@ -54,10 +47,10 @@ class App extends Component {
           </div>
         </div>
         <Rabbit x={this.state.lane} />
-        { this.state.game ? <Carrot carrots={this.state.game.Map.carrot} currentY={this.state.currentY} /> : null }
+        { this.state.game ? <Carrot carrots={this.state.game.Map.carrot} /> : null }
+        {/* <div className='block'></div>
         <div className='block'></div>
-        <div className='block'></div>
-        <div className='block'></div>
+        <div className='block'></div> */}
       </div>
     );
   }

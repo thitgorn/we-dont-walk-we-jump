@@ -12,3 +12,32 @@
   height: 100vh;
   border: 1px solid white;
 }
+
+.fade-black {
+  background-color: black;
+  animation: 2s fading;
+}
+
+.fade-blue {
+  background-color: blue;
+  animation: 2s fading;
+}
+
+.fade-red {
+  background-color: red;
+  animation: 2s fading;
+}
+
+.fade-yellow {
+  background-color: yellow;
+  animation: 2s fading;
+}
+
+@keyframes fading {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
