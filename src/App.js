@@ -5,6 +5,7 @@ import Rabbit from './Components/Rabbit/Rabbit'
 import { Carrot } from './Components/Carrot/Carrot'
 import KeyBinding from 'react-keybinding-component'
 import { IsNotPlaying } from './Components/IsNotPlaying';
+import { Pregame } from './Components/Pregame';
 
 class App extends Component {
   constructor(props) {
@@ -28,10 +29,15 @@ class App extends Component {
   refresh = () => {
     this.setState({ key: Math.random() })
   }
+
+  dead = () => {
+    this.setState({stage: 'dead'})
+  }
   
   componentDidMount() {
     const game = new Game(this.notify)
     game.update = this.refresh
+    game.dead = this.dead
     // game.play()
     this.setState({ game: game })
   }
@@ -67,25 +73,16 @@ class App extends Component {
     if(this.state.stage==='isNotPlaying') {
       return <IsNotPlaying clicked={this.NotPlaying}/>
     }
-
-    console.log(this.state.game.isPlaying)
+    if(this.state.stage==='dead') {
+      return <h1>DEAD</h1>
+    }
     if(this.state.stage==='isPlaying') {
       const backgroundColor = ['fade-black','fade-blue','fade-red','fade-yellow']
       return (
         <div className={`App ${backgroundColor[this.state.senceStage % backgroundColor.length]}`}>
           {
             (!this.state.game.isPlaying) ? 
-              <div style={{ position:'fixed',
-                            top:'0',
-                            left:'0',
-                            width:'100%',
-                            height:'100vh',
-                            zIndex:'1000',
-                            background: 'rgba(0,0,0,0.6)',
-                            color: 'white' }}
-                            onClick={this.play}>
-                <h1>Touch to begin</h1>
-              </div>
+              <Pregame play={this.play}/>
             : null
           }
           <div style={{ position:'fixed', top:'0', left:'0', width:'100%', height:'100vh', zIndex:'999', display: 'flex' }}>

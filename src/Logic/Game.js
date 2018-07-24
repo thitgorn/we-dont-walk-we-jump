@@ -28,6 +28,7 @@ class Game {
                     this.notify()
                 }
                 if(!this.Map.isOnCarrot(this.Rabbit.x,this.Rabbit.y)) {
+                    this.dead()
                     this.isPlaying = false
                 }
                 this.update()
