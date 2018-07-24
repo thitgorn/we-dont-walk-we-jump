@@ -1,8 +1,14 @@
 {
-  "main.css": "static/css/main.91ecb7ff.css",
-  "main.css.map": "static/css/main.91ecb7ff.css.map",
-  "main.js": "static/js/main.92e411c0.js",
-  "main.js.map": "static/js/main.92e411c0.js.map",
+  "main.css": "static/css/main.b0c43176.css",
+  "main.css.map": "static/css/main.b0c43176.css.map",
+  "main.js": "static/js/main.1aeb6317.js",
+  "main.js.map": "static/js/main.1aeb6317.js.map",
+  "static/media/Right-01.png": "static/media/Right-01.15828f70.png",
+  "static/media/codeandcraft.jpg": "static/media/codeandcraft.65dcf9c4.jpg",
   "static/media/left-key.svg": "static/media/left-key.699197f8.svg",
-  "static/media/right-key.svg": "static/media/right-key.19d2b4cf.svg"
+  "static/media/link.jpg": "static/media/link.27e73671.jpg",
+  "static/media/moonshot.png": "static/media/moonshot.007a4a43.png",
+  "static/media/rabbitstale.png": "static/media/rabbitstale.674d28a5.png",
+  "static/media/right-key.svg": "static/media/right-key.19d2b4cf.svg",
+  "static/media/thezero.jpg": "static/media/thezero.5717795a.jpg"
 }
