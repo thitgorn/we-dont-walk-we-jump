@@ -1,8 +1,12 @@
+.animate {
+    animation: 0.490 goDown;
+}
+
 @keyframes goDown {
     from {
-        top: 0%
+        bottom: 0%
     }
     to {
-        top: 100%
+        bottom: 100%
     }
 }

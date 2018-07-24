@@ -24,17 +24,19 @@ class Game {
         setInterval(() => {
             if(this.isPlaying) {
                 this.Rabbit.moveUp()
-                console.log(this.Rabbit);
                 if(this.Rabbit.y % mapInterval === 0) {
                     this.notify()
                 }
-                console.log(this.Map.isOnCarrot(this.Rabbit.x,this.Rabbit.y));
+                if(!this.Map.isOnCarrot(this.Rabbit.x,this.Rabbit.y)) {
+                    this.isPlaying = false
+                }
+                this.update()
             }
-        },490)
+        },450)
     }
 
     restart() {
-        this.Map.clear()
+        // this.Map.clear()
         this.Rabbit.reset()
         this.isPlaying = false
     }
