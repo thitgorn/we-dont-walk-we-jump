@@ -17,6 +17,7 @@ class App extends Component {
       lane: 1,
       key: 1234,
       stage: 'isNotPlaying',
+      turn: 'left'
     }
     this.notify = this.notify.bind(this)
   }
@@ -45,12 +46,12 @@ class App extends Component {
 
   left = () => {
     this.state.game.moveLeft()
-    this.setState({lane: this.state.game.Rabbit.x})
+    this.setState({lane: this.state.game.Rabbit.x, turn: 'left'})
   }
 
   right = () => {
     this.state.game.moveRight()
-    this.setState({lane: this.state.game.Rabbit.x})
+    this.setState({lane: this.state.game.Rabbit.x, turn: 'right'})
   }
 
   handleKey = (e) => {
@@ -93,7 +94,7 @@ class App extends Component {
             </div>
           </div>
           <KeyBinding onKey={this.handleKey} />
-          <Rabbit x={this.state.lane} />
+          <Rabbit x={this.state.lane} turn={this.state.turn} />
           { this.state.game ? <Carrot currentPosition={this.state.game.Rabbit.y} carrots={this.state.game.Map.carrot} /> : null }
         </div>
       )

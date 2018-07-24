@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Company from './Company'
 import rabbitstale from '../../images/background/rabbitstale.png'
 import link from '../../images/background/link.jpg'
 import codeandcraft from '../../images/background/codeandcraft.jpg'
@@ -8,18 +9,14 @@ import moonshot from '../../images/background/moonshot.png'
 
 export class Background extends Component {
   render() {
-    let background = ''
-    switch(this.props.senceStage % 5) {
-        case 0: background = thezero; break;
-        case 1: background = link; break;
-        case 2: background = codeandcraft; break;
-        case 3: background = rabbitstale; break;
-        case 4: background = moonshot; break;
-        default:;
-    }
+    const stage = this.props.senceStage % 5
     return (
-        <div style={{position: 'fixed', top: '0', left: '0', width: '100%', height: '100vh'}}>
-            <img src={background} alt='background' style={{ width: '100%', height: '100vh'}}/>
+        <div>
+            { stage === 0 ? <Company text='thezero' img={thezero}/> : null}
+            { stage === 1 ? <Company text='link' img={link}/> : null}
+            { stage === 2 ? <Company text='codeandcraft' img={codeandcraft}/> : null}
+            { stage === 3 ? <Company text='rabbitstale' img={rabbitstale}/> : null}
+            { stage === 4 ? <Company text='moonshot' img={moonshot}/> : null}
         </div>
     )
   }
