@@ -11,7 +11,7 @@ export class IsNotPlaying extends Component {
         <div style={{ position: 'absolute', top:'50%' , left:'50%', transform: `translate(-50%, -50%)`}}>
             <h1>WE DON'T WALK, WE JUMP</h1>
             <div>
-                <img style={{ width:'20%', height:'auto'}} src='http://www.rabbitdigitalgroup.com/images/rdg.png' alt='rabbit' />
+                <img style={{ width:'20%', height:'auto', minWidth: '150px'}} src='http://www.rabbitdigitalgroup.com/images/rdg.png' alt='rabbit' />
             </div>
             <h1 style={{ marginTop: '50px'}} className='blink'>
             Press any key, or touch to continue

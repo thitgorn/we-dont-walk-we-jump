@@ -6,6 +6,7 @@ import { Carrot } from './Components/Carrot/Carrot'
 import KeyBinding from 'react-keybinding-component'
 import { IsNotPlaying } from './Components/IsNotPlaying';
 import { Pregame } from './Components/Pregame';
+import { Background } from './Components/Background';
 
 class App extends Component {
   constructor(props) {
@@ -77,14 +78,14 @@ class App extends Component {
       return <h1>DEAD</h1>
     }
     if(this.state.stage==='isPlaying') {
-      const backgroundColor = ['fade-black','fade-blue','fade-red','fade-yellow']
       return (
-        <div className={`App ${backgroundColor[this.state.senceStage % backgroundColor.length]}`}>
+        <div className={`App`}>
           {
             (!this.state.game.isPlaying) ? 
               <Pregame play={this.play}/>
             : null
           }
+          <Background senceStage={this.state.senceStage}/>
           <div style={{ position:'fixed', top:'0', left:'0', width:'100%', height:'100vh', zIndex:'999', display: 'flex' }}>
             <div style={{ background: 'none' ,width: '50%', height: '100vh', opacity: '0.1'}} onClick={this.left}>
             </div>

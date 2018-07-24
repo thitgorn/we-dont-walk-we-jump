@@ -7,7 +7,7 @@
     border: 1px solid red;
     width: 10vw;
     max-width: 75px;
-    height: 10vw;
-    max-height: 75px;
+    height: 15vw;
+    max-height: 100px;
     z-index: 998;
 }
