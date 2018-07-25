@@ -54,8 +54,11 @@ const text4 = keyframes`
     0% {
         opacity: 0;
     }
-    55% {
+    50% {
         opacity: 0;
+    }
+    55% {
+        opacity: 1;
     }
     60% {
         opacity: 1;
@@ -78,6 +81,9 @@ const text5 = keyframes`
         opacity: 1;
     }
     80% {
+        opacity: 1;
+    }
+    95% {
         opacity: 1;
     }
     100% {
@@ -118,32 +124,41 @@ export class Win extends Component {
                             color: 'white',
                             textShadow: '0px 0px 10px black',
                             backgroundImage: `url('${background}')`,
-                            backgroundSize: 'cover',
+                            // backgroundImage: `url('https://i0.wp.com/freepngimages.com/wp-content/uploads/2015/10/the-moon-planet.png?w=486')`,
+                            backgroundSize: 'auto',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'right',
                             animation: `36s ${backgroundEffect}`
                             }}>
 
                 <div style={{opacity: '0', background:'rgba(0,0,0,0.8)', padding: '10px', position: 'absolute', bottom: '50%', left: '50%', animation: `36s ${text1}`}}>
-                    You cannot shake hands with a clenched fist.
+                    <div>In a Universe with infinite possibilities, we don’t need to have our hearts set on just one.</div>
+                    <div>– Renae A. Sauter</div>
                 </div>
 
                 <div style={{opacity: '0', background:'rgba(0,0,0,0.8)', padding: '10px',  position: 'absolute', bottom: '50%', left: '50%', animation: `36s ${text2}`}}>
-                    Let us sacrifice our today so that our children can have a better tomorrow.
+                    <div>There are endless possibilities.</div>
+                    <div>– Kenneth Feld</div>
                 </div>
 
                 <div style={{opacity: '0', background:'rgba(0,0,0,0.8)', padding: '10px', position: 'absolute', bottom: '50%', left: '50%', animation: `36s ${text3}`}}>
-                    When you reach the end of your rope, tie a knot in it and hang on.
+                    <div>Let your imagination release your imprisoned possibilities.</div>
+                    <div>– Dr. Robert Schuller</div>
                 </div>
 
                 <div style={{opacity: '0', background:'rgba(0,0,0,0.8)', padding: '10px', position: 'absolute', bottom: '50%', left: '50%', animation: `36s ${text4}`}}>
-                    There is no charm equal to tenderness of heart.
+                    <div>Be open minded as an open minded person always sees everything possible and the one who sees everything possible is capable of making anything possible.</div>
+                    <div>– Mickey Mehta</div>
                 </div>
 
                 <div style={{opacity: '0', background:'rgba(0,0,0,0.8)', padding: '10px', position: 'absolute', bottom: '50%', left: '50%', animation: `36s ${text5}`}}>
-                    JOIN US
+                    <div>Dreams are renewable. No matter what our age or condition, there are still untapped possibilities within us and new beauty waiting to be born.</div>
+                    <div>– Dr. Dale E. Turner</div>
                 </div>
 
                 <div style={{opacity: '1', background:'rgba(0,0,0,0.8)', padding: '10px', position: 'absolute', bottom: '50%', left: '50%', animation: `36s ${text6}`}}>
-                    RABBIT DIGITAL GROUP
+                    <h1>Seize the Possibility</h1>
+                    <div>- Rabbit Digital Group</div>
                 </div>
             </div>
         </div>
