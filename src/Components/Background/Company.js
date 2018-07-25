@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 import { keyframes } from 'styled-components'
 
+const fade = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
 const explore = keyframes`
   from {
     top: 50%;
@@ -17,7 +26,8 @@ const explore = keyframes`
 export class Company extends Component {
   render() {
     return (
-        <div style={{position: 'fixed', top: '0', left: '0', width: '100%', height: '100vh', background:'black'}}>
+        <div style={{position: 'fixed', top: '0', left: '0', width: '100%', height: '100vh', background:'black',
+                     animation: `1.5s ${fade}`}}>
             <div style={{ color:'white',
                           background: 'none',
                           position: 'absolute',

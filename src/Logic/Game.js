@@ -1,11 +1,12 @@
 import Rabbit from './Rabbit'
 import Map from './Map'
-import { mapInterval } from './Config';
+import { mapInterval, height } from './Config';
 
 class Game {
     constructor (notify) {
         this.Map = new Map()
         this.Rabbit = new Rabbit()
+        this.deadCount = 0
         this.isPlaying = false
         this.notify = notify
         this.playing()
@@ -27,8 +28,12 @@ class Game {
                 if(this.Rabbit.y % mapInterval === 0) {
                     this.notify()
                 }
+                if(this.Rabbit.y >= height) {
+                    this.win()
+                }
                 if(!this.Map.isOnCarrot(this.Rabbit.x,this.Rabbit.y)) {
                     this.dead()
+                    this.deadCount += 1
                     this.isPlaying = false
                 }
                 this.update()

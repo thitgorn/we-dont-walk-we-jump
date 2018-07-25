@@ -3,16 +3,16 @@ import './Carrot.css'
 import { keyframes } from 'styled-components'
 export class Carrot extends Component {
   render() {
-    const carrots = this.props.carrots.map( (carrot,index)=> {
+    const carrots = this.props.carrots.map((carrot,index) => {
       let animation = ''
-      if(((carrot.y - this.props.currentPosition) * 25) <= 100) {
+      if(((carrot.y - this.props.currentPosition) * 25) <= 100 && this.props.isPlaying) {
         animation = keyframes`
                       from {
                         bottom: ${(carrot.y - this.props.currentPosition) * 25}%
                       }
                     
                       to {
-                        bottom: ${(carrot.y - this.props.currentPosition - 1)*25}%
+                        bottom: ${(carrot.y - this.props.currentPosition - 1) * 25}%
                       }
                     `
       }
@@ -21,8 +21,10 @@ export class Carrot extends Component {
                 left: `${(15 + (carrot.x * 30))}%`,
                 width: '10%',
                 height: `${carrot.height * 25}%`,
-                background: 'rgba(255,165,0,0.5)',
-                animation: `0.450s ${animation}`}}></div>
+                animation: `0.450s ${animation}`,
+                zIndex:`${( (index%50) * -1) + 100}`}}>
+                  <img src={carrot.image} style={{width: `100%`, height: `100%`}} alt='carrot'/>
+              </div>
     })
     return (
       <div>

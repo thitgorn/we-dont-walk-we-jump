@@ -7,6 +7,8 @@ import KeyBinding from 'react-keybinding-component'
 import { IsNotPlaying } from './Components/IsNotPlaying';
 import { Pregame } from './Components/Pregame';
 import { Background } from './Components/Background';
+import { Dead } from './Components/Dead'
+import { Win } from './Components/Win'
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +24,6 @@ class App extends Component {
     this.notify = this.notify.bind(this)
   }
 
-  // isNotPlaying, isPlaying, Dead
-
   notify() {
     this.setState({senceStage: this.state.senceStage + 1})
   }
@@ -33,13 +33,14 @@ class App extends Component {
   }
 
   dead = () => {
-    this.setState({stage: 'dead'})
+    this.setState({stage: 'dead', deadCount: this.state.game.deadCount})
   }
   
   componentDidMount() {
     const game = new Game(this.notify)
     game.update = this.refresh
     game.dead = this.dead
+    game.win = this.win
     // game.play()
     this.setState({ game: game })
   }
@@ -71,12 +72,20 @@ class App extends Component {
     this.state.game.restart()
     this.state.game.play()
   }
+
+  win = () => {
+    this.setState({stage: 'win'})
+  }
+
   render() {
     if(this.state.stage==='isNotPlaying') {
       return <IsNotPlaying clicked={this.NotPlaying}/>
     }
+    if(this.state.stage==='win') {
+      return <Win />
+    }
     if(this.state.stage==='dead') {
-      return <h1>DEAD</h1>
+      return <Dead retry={this.NotPlaying} count={this.state.deadCount}/>
     }
     if(this.state.stage==='isPlaying') {
       return (
@@ -94,8 +103,8 @@ class App extends Component {
             </div>
           </div>
           <KeyBinding onKey={this.handleKey} />
-          <Rabbit x={this.state.lane} turn={this.state.turn} />
-          { this.state.game ? <Carrot currentPosition={this.state.game.Rabbit.y} carrots={this.state.game.Map.carrot} /> : null }
+          <Rabbit isPlaying={this.state.game.isPlaying} x={this.state.lane} turn={this.state.turn} />
+          { this.state.game ? <Carrot isPlaying={this.state.game.isPlaying} currentPosition={this.state.game.Rabbit.y} carrots={this.state.game.Map.carrot} /> : null }
         </div>
       )
     }
