@@ -23,6 +23,11 @@ class Map {
             const carrot = new Carrot(x,y,height)
             this.carrot.push(carrot)
         }
+
+        for(var i = 0 ; i < 20 ; i++) {
+            const carrot = new Carrot(0, this.carrot[this.carrot.length - 1].y + this.carrot[this.carrot.length - 1].height - 1, 5)
+            this.carrot.push(carrot)
+        }
     }
 
     clear() {

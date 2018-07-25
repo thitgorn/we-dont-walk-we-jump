@@ -17,7 +17,7 @@ const explore = keyframes`
     transform: translate(-50%,-50%);
   }
   to {
-    top: 0%;
+    top: 1%;
     left: 3%;
     ttransform: translate(0%,0%);
   }
@@ -31,12 +31,17 @@ export class Company extends Component {
             <div style={{ color:'white',
                           background: 'none',
                           position: 'absolute',
-                          top: '0%',
+                          top: '1%',
                           left: '3%',
                           zIndex: '10000',
                           textShadow: '0 0 10px black',
                           animation: `4s ${explore}` }}>
-              <h1>{this.props.text}</h1>
+              <div style={{ background: 'rgba(0,0,0,0.5)' }}>
+                { this.props.logo ? 
+                  <img src={this.props.logo} alt='logo' style={{ width: '100px', height: 'auto'}}/>
+                  : null
+                }
+              </div>
             </div>
             <img src={this.props.img} alt='background' style={{ width: '100%', height: '100vh'}}/>
         </div>

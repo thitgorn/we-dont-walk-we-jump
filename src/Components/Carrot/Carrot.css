@@ -1,12 +1,9 @@
-.animate {
-    animation: 0.490 goDown;
+.carrot {
+    transform: translateX(-20%)
 }
 
-@keyframes goDown {
-    from {
-        bottom: 0%
-    }
-    to {
-        bottom: 100%
+@media (min-width: 768px) {
+    .carrot {
+        transform: translateX(0)
     }
 }

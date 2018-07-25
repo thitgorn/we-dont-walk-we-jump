@@ -5,9 +5,9 @@
     transform: translate(-50%,0);
     /* background: white; */
     /* border: 1px solid red; */
-    width: 10vw;
+    width: 20%;
     max-width: 75px;
-    height: 15vw;
+    height: 20%;
     max-height: 165px;
     z-index: 998;
 }

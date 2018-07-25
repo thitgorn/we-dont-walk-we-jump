@@ -8,7 +8,6 @@ import { IsNotPlaying } from './Components/IsNotPlaying';
 import { Pregame } from './Components/Pregame';
 import { Background } from './Components/Background';
 import { Dead } from './Components/Dead'
-import { Win } from './Components/Win'
 
 class App extends Component {
   constructor(props) {
@@ -46,13 +45,17 @@ class App extends Component {
   }
 
   left = () => {
-    this.state.game.moveLeft()
-    this.setState({lane: this.state.game.Rabbit.x, turn: 'left'})
+    if(!this.state.game.endSence) {
+      this.state.game.moveLeft()
+      this.setState({lane: this.state.game.Rabbit.x, turn: 'left'})
+    }
   }
 
   right = () => {
-    this.state.game.moveRight()
-    this.setState({lane: this.state.game.Rabbit.x, turn: 'right'})
+    if(!this.state.game.endSence) {
+      this.state.game.moveRight()
+      this.setState({lane: this.state.game.Rabbit.x, turn: 'right'})
+    }
   }
 
   handleKey = (e) => {
@@ -73,16 +76,9 @@ class App extends Component {
     this.state.game.play()
   }
 
-  win = () => {
-    this.setState({stage: 'win'})
-  }
-
   render() {
     if(this.state.stage==='isNotPlaying') {
       return <IsNotPlaying clicked={this.NotPlaying}/>
-    }
-    if(this.state.stage==='win') {
-      return <Win />
     }
     if(this.state.stage==='dead') {
       return <Dead retry={this.NotPlaying} count={this.state.deadCount}/>
@@ -95,14 +91,18 @@ class App extends Component {
               <Pregame play={this.play}/>
             : null
           }
-          <Background senceStage={this.state.senceStage}/>
-          <div style={{ position:'fixed', top:'0', left:'0', width:'100%', height:'100vh', zIndex:'999', display: 'flex' }}>
-            <div style={{ background: 'none' ,width: '50%', height: '100vh', opacity: '0.1'}} onClick={this.left}>
+          <Background senceStage={this.state.senceStage} isPlaying={this.state.game.isPlaying}/>
+          { this.state.game.endSence ? null :
+            <div>
+              <div style={{ position:'fixed', top:'0', left:'0', width:'100%', height:'100vh', zIndex:'999', display: 'flex' }}>
+                <div style={{ background: 'none' ,width: '50%', height: '100vh', opacity: '0.1'}} onClick={this.left}>
+                </div>
+                <div style={{ background: 'none' ,width: '50%', height: '100vh', opacity: '0.1'}} onClick={this.right}>
+                </div>
+              </div>
+              <KeyBinding onKey={this.handleKey} /> 
             </div>
-            <div style={{ background: 'none' ,width: '50%', height: '100vh', opacity: '0.1'}} onClick={this.right}>
-            </div>
-          </div>
-          <KeyBinding onKey={this.handleKey} />
+          }
           <Rabbit isPlaying={this.state.game.isPlaying} x={this.state.lane} turn={this.state.turn} />
           { this.state.game ? <Carrot isPlaying={this.state.game.isPlaying} currentPosition={this.state.game.Rabbit.y} carrots={this.state.game.Map.carrot} /> : null }
         </div>

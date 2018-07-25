@@ -11,6 +11,7 @@ class Game {
         this.notify = notify
         this.playing()
         this.Map.initialize()
+        this.endSence = false
     }
 
     play() {
@@ -24,12 +25,16 @@ class Game {
     playing() {
         setInterval(() => {
             if(this.isPlaying) {
-                this.Rabbit.moveUp()
-                if(this.Rabbit.y % mapInterval === 0) {
-                    this.notify()
+                if(this.Rabbit.y >= this.Map.carrot[this.Map.carrot.length - 1].y + this.Map.carrot[this.Map.carrot.length - 1].height - 1) {
+                    // win
+                } else {
+                    this.Rabbit.moveUp()
                 }
                 if(this.Rabbit.y >= height) {
-                    this.win()
+                    this.endSence = true
+                }
+                if(this.Rabbit.y % mapInterval === 0) {
+                    this.notify()
                 }
                 if(!this.Map.isOnCarrot(this.Rabbit.x,this.Rabbit.y)) {
                     this.dead()

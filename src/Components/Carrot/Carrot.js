@@ -16,10 +16,11 @@ export class Carrot extends Component {
                       }
                     `
       }
-      return <div key={`carrot${index}`} style={{ position: 'absolute',
+      return <div key={`carrot${index}`} className="carrot" style={{ position: 'absolute',
                 bottom: `${ ((carrot.y - this.props.currentPosition)) * 25}%`,
                 left: `${(15 + (carrot.x * 30))}%`,
                 width: '10%',
+                minWidth: '50px',
                 height: `${carrot.height * 25}%`,
                 animation: `0.450s ${animation}`,
                 zIndex:`${( (index%50) * -1) + 100}`}}>
