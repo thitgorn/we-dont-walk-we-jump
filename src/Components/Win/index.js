@@ -124,8 +124,7 @@ export class Win extends Component {
                             color: 'white',
                             textShadow: '0px 0px 10px black',
                             backgroundImage: `url('${background}')`,
-                            // backgroundImage: `url('https://i0.wp.com/freepngimages.com/wp-content/uploads/2015/10/the-moon-planet.png?w=486')`,
-                            backgroundSize: 'auto',
+                            backgroundSize: 'contain',
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'right',
                             animation: `36s ${backgroundEffect}`
