@@ -71,7 +71,7 @@ class App extends Component {
   }
 
   play = () => {
-    this.setState({lane: 1})
+    this.setState({lane: 1, senceStage: 0})
     this.state.game.restart()
     this.state.game.play()
   }

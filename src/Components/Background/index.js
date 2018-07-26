@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Company from './Company'
-import rabbitstale from '../../images/background/rabbitstale.png'
-import link from '../../images/background/link.jpg'
-import codeandcraft from '../../images/background/codeandcraft.jpg'
-import thezero from '../../images/background/thezero.jpg'
-import moonshot from '../../images/background/moonshot.png'
+import rabbitstale from '../../images/background/4_Rabbit.jpg'
+import link from '../../images/background/2_Link.jpg'
+import codeandcraft from '../../images/background/3_Code.jpg'
+import thezero from '../../images/background/1_Zero.jpg'
+import moonshot from '../../images/background/5_Moonshot.jpg'
 
 import rabbitstalelogo from '../../images/logo/rabbitstale.png'
 import linklogo from '../../images/logo/link.png'
@@ -17,17 +17,14 @@ import { Win } from '../Win'
 
 export class Background extends Component {
   render() {
-    if(!this.props.isPlaying) {
-      return <Company text='thezero' logo={null} img={thezero}/>
-    }
     const stage = this.props.senceStage
     return (
         <div>
-            { stage === 0 ? <Company text='thezero' logo={thezerologo} img={thezero}/> : null}
-            { stage === 1 ? <Company text='link' logo={linklogo} img={link}/> : null}
-            { stage === 2 ? <Company text='codeandcraft' logo={codeandcraftlogo} img={codeandcraft}/> : null}
-            { stage === 3 ? <Company text='rabbitstale' logo={rabbitstalelogo} img={rabbitstale}/> : null}
-            { stage === 4 ? <Company text='moonshot' logo={moonshotlogo} img={moonshot}/> : null}
+            { stage === 0 ? <Company isPlaying={this.props.isPlaying} text='thezero' logo={thezerologo} img={thezero}/> : null}
+            { stage === 1 ? <Company isPlaying={this.props.isPlaying} text='link' logo={linklogo} img={link}/> : null}
+            { stage === 2 ? <Company isPlaying={this.props.isPlaying} text='codeandcraft' logo={codeandcraftlogo} img={codeandcraft}/> : null}
+            { stage === 3 ? <Company isPlaying={this.props.isPlaying} text='rabbitstale' logo={rabbitstalelogo} img={rabbitstale}/> : null}
+            { stage === 4 ? <Company isPlaying={this.props.isPlaying} text='moonshot' logo={moonshotlogo} img={moonshot}/> : null}
             { stage >= 5 ? <Win /> : null}
         </div>
     )
