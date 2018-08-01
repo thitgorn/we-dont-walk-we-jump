@@ -1,5 +1,5 @@
 # We don't walk, we jump.
 
 ```
-Rabbit digital group internship project
+Winning award, Rabbit digital group internship project
 ```
